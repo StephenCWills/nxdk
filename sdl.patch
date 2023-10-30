@@ -1,0 +1,55 @@
+94c94
+<     JOY_DBGMSG("connection_callback: uid %i connected \n", xid_dev->uid);
+---
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "connection_callback: uid %i connected ", xid_dev->uid);
+99c99
+<     JOY_DBGMSG("disconnect_callback uid %i disconnected\n", xid_dev->uid);
+---
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "disconnect_callback uid %i disconnected", xid_dev->uid);
+153a154,155
+>         SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "registering connection_callback...");
+>         usbh_install_xid_conn_callback(connection_callback, disconnect_callback);
+157d158
+<     usbh_install_xid_conn_callback(connection_callback, disconnect_callback);
+184c185
+<     JOY_DBGMSG("SDL_XBOX_JoystickGetCount: Found %i pads\n", pad_cnt);
+---
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "SDL_XBOX_JoystickGetCount: Found %i pads", pad_cnt);
+231c232
+<     JOY_DBGMSG("SDL_XBOX_JoystickGetDevicePlayerIndex: %i\n", player_index);
+---
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "SDL_XBOX_JoystickGetDevicePlayerIndex: %i", player_index);
+264c265
+<     JOY_DBGMSG("SDL_XBOX_JoystickGetDeviceInstanceID: %i\n", xid_dev->uid);
+---
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "SDL_XBOX_JoystickGetDeviceInstanceID: %i", xid_dev->uid);
+273c274
+<         JOY_DBGMSG("SDL_XBOX_JoystickOpen: Could not find device index %i\n", device_index);
+---
+>         SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "SDL_XBOX_JoystickOpen: Could not find device index %i", device_index);
+312,316c313,317
+<     JOY_DBGMSG("JoystickOpened:\n");
+<     JOY_DBGMSG("joystick device_index: %i\n", device_index);
+<     JOY_DBGMSG("joystick player_index: %i\n", joystick->player_index);
+<     JOY_DBGMSG("joystick uid: %i\n", xid_dev->uid);
+<     JOY_DBGMSG("joystick name: %s\n", SDL_XBOX_JoystickGetDeviceName(device_index));
+---
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "JoystickOpened:");
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "joystick device_index: %i", device_index);
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "joystick player_index: %i", joystick->player_index);
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "joystick uid: %i", xid_dev->uid);
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "joystick name: %s", SDL_XBOX_JoystickGetDeviceName(device_index));
+435c436
+<     JOY_DBGMSG("SDL_XBOX_JoystickClose:\n");
+---
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "SDL_XBOX_JoystickClose:");
+445,446c446,447
+<         JOY_DBGMSG("Closing joystick:\n", joystick->hwdata->xid_dev->uid);
+<         JOY_DBGMSG("joystick player_index: %i\n", joystick->player_index);
+---
+>         SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "Closing joystick:", joystick->hwdata->xid_dev->uid);
+>         SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "joystick player_index: %i", joystick->player_index);
+454c455
+<     JOY_DBGMSG("SDL_XBOX_JoystickQuit\n");
+---
+>     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "SDL_XBOX_JoystickQuit");
